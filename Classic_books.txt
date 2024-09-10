@@ -1,0 +1,16 @@
+﻿Classic book list
+1,Pride_and_Prejudice,Jane_Austen
+2,To_Kill_a_Mockingbird,Harper_Lee
+3,The_Great_Gatsby,F._Scott_Fitzgerald
+4,One_Hundred_Years_of_Solitude,Gabriel_García_Márquez 
+5,In_Cold_Blood,Truman_Capote
+6,Wide_Sargasso_Sea,Jean_Rhys
+7,Brave_New_World,Aldous_Huxley
+8,I_Capture_The_Castle,Dodie_Smith
+9,Jane_Eyre,Charlotte_Bronte
+10,Crime_and_Punishment,Fyodor_Dostoevsky
+11,The_Secret_History,Donna_Tartt
+12,The_Call_of_the_Wild,Jack_London
+13,Persuasion,Jane_Austen
+14,Les_Miserables,Victor_Hugo 
+15,Moby-Dick,Herman_Melville
