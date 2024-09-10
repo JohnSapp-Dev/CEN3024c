@@ -14,8 +14,7 @@ public class RDBMS {
             System.out.println("Enter the name of your database");
             String SQLDatabase = SQLLogin.nextLine();
             Connection SQLServer;
-            // String SQLUser = "root"; // SQL server user name
-            //String SQLPassword = "cop2805"; // SQL server password
+            
             String SQLUrl = "jdbc:mysql://localhost:3306/" + SQLDatabase; // sql server url
 
             Scanner filePath = new Scanner(System.in); // accepts input
@@ -84,8 +83,7 @@ public class RDBMS {
             Connection SQLServer;
             PreparedStatement SQLStatementRetrieve;
             PreparedStatement SQLStatementCount;
-            //String SQLUser = "root"; // SQL server user name
-            //String SQLPassword = "cop2805"; // SQL server password
+
             String SQLUrl = "jdbc:mysql://localhost:3306/"+SQLDatabase; // sql server url
 
             System.out.println("Enter the Book ID to be removed");
@@ -173,9 +171,7 @@ public class RDBMS {
             System.out.println("Enter the name of your database");
             String SQLDatabase = SQLLogin.nextLine();
             Connection SQLServer;
-            //String SQLUser = "root"; // SQL server user name
-            //String SQLPassword = "cop2805"; // SQL server password
-           /* String SQLUrl = "jdbc:mysql://localhost:3306/LMS_database"; // sql server url*/
+
             String SQLUrl = "jdbc:mysql://localhost:3306/"+SQLDatabase; // sql server url
             ResultSet SQLRowValues;
             PreparedStatement SQLStatementRow;
