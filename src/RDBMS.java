@@ -7,14 +7,14 @@ public class RDBMS {
     public static void addABook(){
         try {
             Scanner SQLLogin = new Scanner(System.in);
-            System.out.println("Enter the user name of your database");
+            System.out.println("Enter the username of your database");
             String SQLUser = SQLLogin.nextLine();
             System.out.println("Enter the password for your database");
             String SQLPassword = SQLLogin.nextLine();
             System.out.println("Enter the name of your database");
             String SQLDatabase = SQLLogin.nextLine();
             Connection SQLServer;
-            
+
             String SQLUrl = "jdbc:mysql://localhost:3306/" + SQLDatabase; // sql server url
 
             Scanner filePath = new Scanner(System.in); // accepts input
@@ -56,13 +56,18 @@ public class RDBMS {
 
         } catch (FileNotFoundException e) {
             //throw new RuntimeException(e);
-            System.out.print("File not found. Try again\n");
-            addABook();
-
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.print("Error, try again\n");
-            addABook();
-            throw new RuntimeException(e);
+            System.out.print("File not found.\n");
+            MainMenu.displayMenu();
+        }catch (ClassNotFoundException e) {
+            System.out.print("Error, database driver not found\n");
+            MainMenu.displayMenu();
+           // throw new RuntimeException(e);
+        }catch (SQLException e){
+            System.out.print("Error, SQL database not found\n");
+            MainMenu.displayMenu();
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("File format error. All spaces should be replaced with underscores '_'");
+            MainMenu.displayMenu();
         }
     }
 
@@ -73,7 +78,7 @@ public class RDBMS {
 
         try{
             Scanner SQLLogin = new Scanner(System.in);
-            System.out.println("Enter the user name of your database");
+            System.out.println("Enter the username of your database");
             String SQLUser = SQLLogin.nextLine();
             System.out.println("Enter the password for your database");
             String SQLPassword = SQLLogin.nextLine();
@@ -153,10 +158,13 @@ public class RDBMS {
 
             SQLServer.close();
 
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.print("Error, try again\n");
-            removeABook();
-            throw new RuntimeException(e);
+        }catch (ClassNotFoundException e) {
+            System.out.print("Error, database driver not found\n");
+            MainMenu.displayMenu();
+            // throw new RuntimeException(e);
+        }catch (SQLException e){
+            System.out.print("Error, SQL database not found\n");
+            MainMenu.displayMenu();
         }
 
     }
@@ -164,7 +172,7 @@ public class RDBMS {
     public static void listAllBooks(){
         try{
             Scanner SQLLogin = new Scanner(System.in);
-            System.out.println("Enter the user name of your database");
+            System.out.println("Enter the username of your database");
             String SQLUser = SQLLogin.nextLine();
             System.out.println("Enter the password for your database");
             String SQLPassword = SQLLogin.nextLine();
@@ -201,14 +209,13 @@ public class RDBMS {
             SQLServer.close();
             MainMenu.displayMenu();
 
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.print("Error, try again\n");
-            listAllBooks();
-            throw new RuntimeException(e);
+        }catch (ClassNotFoundException e) {
+            System.out.print("Error, database driver not found\n");
+            MainMenu.displayMenu();
+            // throw new RuntimeException(e);
+        }catch (SQLException e){
+            System.out.print("Error, SQL database not found\n");
+            MainMenu.displayMenu();
         }
     }
 }
-
-
-
-
