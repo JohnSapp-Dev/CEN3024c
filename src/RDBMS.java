@@ -13,6 +13,8 @@ public class RDBMS {
             String SQLPassword = SQLLogin.nextLine();
             System.out.println("Enter the name of your database");
             String SQLDatabase = SQLLogin.nextLine();
+            System.out.println("Enter the name of your table");
+            String SQLTable = SQLLogin.nextLine();
             Connection SQLServer;
 
             String SQLUrl = "jdbc:mysql://localhost:3306/" + SQLDatabase; // sql server url
@@ -25,7 +27,7 @@ public class RDBMS {
             Class.forName("com.mysql.cj.jdbc.Driver");
             SQLServer = DriverManager.getConnection(SQLUrl,SQLUser,SQLPassword);
 
-            String SQLCommand = "INSERT INTO lms (Book_id, Book_Title, Book_Author)" +
+            String SQLCommand = "INSERT INTO "+ SQLTable +" (Book_id, Book_Title, Book_Author)" +
                     " VALUES (?,?,?)"; //template for the preparedStatement object
             File SQLFile = new File(filePathName); //opens in .txt file
             Scanner SQLFileValues = new Scanner(SQLFile); //reads in .txt file
@@ -84,6 +86,8 @@ public class RDBMS {
             String SQLPassword = SQLLogin.nextLine();
             System.out.println("Enter the name of your database");
             String SQLDatabase = SQLLogin.nextLine();
+            System.out.println("Enter the name of your table");
+            String SQLTable = SQLLogin.nextLine();
 
             Connection SQLServer;
             PreparedStatement SQLStatementRetrieve;
@@ -105,9 +109,9 @@ public class RDBMS {
             Class.forName("com.mysql.cj.jdbc.Driver");
             SQLServer = DriverManager.getConnection(SQLUrl,SQLUser,SQLPassword);
             String SQLCommandDelete = "DELETE FROM lms WHERE Book_id = ?"; //template for the preparedStatement object
-            String SQLCommandRetrieve = "SELECT Book_id,Book_title,Book_author FROM lms WHERE Book_id = ?";
+            String SQLCommandRetrieve = "SELECT Book_id,Book_title,Book_author FROM "+SQLTable+" WHERE Book_id = ?";
 
-            String SQLSize = "Select COUNT(*) FROM lms";
+            String SQLSize = "Select COUNT(*) FROM "+SQLTable;
 
             // counts all rows in the database before the delete query
             SQLStatementCount = SQLServer.prepareStatement(SQLSize);
@@ -178,6 +182,9 @@ public class RDBMS {
             String SQLPassword = SQLLogin.nextLine();
             System.out.println("Enter the name of your database");
             String SQLDatabase = SQLLogin.nextLine();
+            System.out.println("Enter the name of your table");
+            String SQLTable = SQLLogin.nextLine();
+
             Connection SQLServer;
 
             String SQLUrl = "jdbc:mysql://localhost:3306/"+SQLDatabase; // sql server url
@@ -190,7 +197,7 @@ public class RDBMS {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             SQLServer = DriverManager.getConnection(SQLUrl,SQLUser,SQLPassword);
-            String SQLSelectAll = "SELECT * FROM lms";
+            String SQLSelectAll = "SELECT * FROM " +SQLTable;
 
             SQLStatementRow = SQLServer.prepareStatement(SQLSelectAll);
             SQLRowValues = SQLStatementRow.executeQuery();
