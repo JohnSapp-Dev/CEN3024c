@@ -108,7 +108,7 @@ public class RDBMS {
             int countAD = 0;
             Class.forName("com.mysql.cj.jdbc.Driver");
             SQLServer = DriverManager.getConnection(SQLUrl,SQLUser,SQLPassword);
-            String SQLCommandDelete = "DELETE FROM lms WHERE Book_id = ?"; //template for the preparedStatement object
+            String SQLCommandDelete = "DELETE FROM "+SQLTable+" WHERE Book_id = ?"; //template for the preparedStatement object
             String SQLCommandRetrieve = "SELECT Book_id,Book_title,Book_author FROM "+SQLTable+" WHERE Book_id = ?";
 
             String SQLSize = "Select COUNT(*) FROM "+SQLTable;
